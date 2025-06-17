@@ -4,6 +4,9 @@ import discord
 from discord.ext import commands
 import asyncio
 from dotenv import load_dotenv
+#from champions.py import Champions
+import random
+from Commands.brawl import brawl_func
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
@@ -24,13 +27,19 @@ async def on_ready():
     print(bot.user.id)
     print('------------')
 
-@bot.event
-async def on_member_join(member, ctx):
-    await ctx.send(f'Thomas har smuglet inn {member.name}, håper du har visum på plass.')
-
 @bot.command()
-async def hello(ctx):
-    await ctx.send(f"Hello, {ctx.author.mention}!")
+async def brawl(ctx):
+    await brawl_func(ctx)
+
+
+@bot.event
+async def on_member_join(member):
+    for channel in member.guild.text_channels:
+        if channel.name == "general":
+            await channel.send(f'Thomas har smuglet inn {member.name}, håper du har visum på plass!')
+            break
+
+
 
 
 
