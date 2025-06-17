@@ -3,3 +3,4 @@
 discord.log
 run.sh
 .idea/
+__pycache__/
