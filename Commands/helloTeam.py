@@ -2,13 +2,15 @@ import discord
 import os
 from dotenv import load_dotenv
 import asyncio
+import datetime
 # Path to your sound file
 #SOUND_FILE = "HelloTeam.mp3"
 load_dotenv()
 SOUND_FILE = os.getenv('SOUND_FILE')  # Default to HelloTeam.mp3 if not set in .env
 
 async def play_greeting_sound(member, before, after, bot):
-
+    if datetime.datetime.today().weekday() != 1:
+        return
     if (before.channel is None and after.channel is not None
         and not member.bot
         and not any(vc.channel == after.channel for vc in bot.voice_clients)):

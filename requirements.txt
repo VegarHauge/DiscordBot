@@ -1,2 +1,4 @@
 discord
 dotenv
+yt-dlp
+wavelink
