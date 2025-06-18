@@ -6,9 +6,19 @@ import asyncio
 from dotenv import load_dotenv
 import pomice
 
+from Commands.blackjack import Blackjack
 from Commands.brawl import brawl_func
 from Commands.helloTeam import play_greeting_sound
 from Commands.music import Music
+from Commands.lola import LolaCog
+
+from Commands.Lolalytics.build import get_build
+from Commands.Lolalytics.skillOrder import get_skill_order
+from Commands.Lolalytics.startingItems import get_starting_items
+from Commands.Lolalytics.coreBuild import get_core_build
+from Commands.Lolalytics.runes import get_runes
+from Commands.Lolalytics.lateGameItems import get_late_game_items
+from Commands.Lolalytics.summoners import get_summoner
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
@@ -37,9 +47,12 @@ class MyBot(commands.Bot):
     async def setup_hook(self):
         # Proper place to add cogs in discord.py 2.x
         await self.add_cog(Music(self))
+        await self.add_cog(Blackjack(self))
+        #await self.add_cog(LolaCog(self))
         self.add_command(brawl)
         self.add_listener(on_member_join)
         self.add_listener(on_voice_state_update)
+        self.add_command(lola)
 
 
     async def on_ready(self) -> None:
@@ -64,6 +77,14 @@ async def on_member_join(member):
 async def on_voice_state_update(member, before, after):
     bot = member._state._get_client()  # or keep a global bot variable, or pass as needed
     await play_greeting_sound(member, before, after, bot)
+
+
+@commands.command()
+async def lola(ctx):
+    print()
+    build = get_build(f"{ctx.message.content.split(' ')[1]}")
+    await ctx.author.send(build)
+
 
 if __name__ == "__main__":
     bot = MyBot()
