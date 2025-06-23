@@ -11,6 +11,7 @@ from Commands.brawl import brawl_func
 from Commands.helloTeam import play_greeting_sound
 from Commands.music import Music
 from Commands.lola import LolaCog
+from Commands.minecraftCordinates import MinecraftCoordinates
 
 from Commands.Lolalytics.build import get_build
 from Commands.Lolalytics.skillOrder import get_skill_order
@@ -48,6 +49,7 @@ class MyBot(commands.Bot):
         # Proper place to add cogs in discord.py 2.x
         await self.add_cog(Music(self))
         await self.add_cog(Blackjack(self))
+        await self.add_cog(MinecraftCoordinates(self))
         #await self.add_cog(LolaCog(self))
         self.add_command(brawl)
         self.add_listener(on_member_join)

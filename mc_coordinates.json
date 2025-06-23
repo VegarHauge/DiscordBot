@@ -1,0 +1,18 @@
+{
+    "1384526619154055269": {
+        "nether": "123 23 23",
+        "end_portal": "X:21 Y:23"
+    },
+    "405068842512023555": {
+        "gunpowder": "-2600 +1450",
+        "end_portal": "-1220 +2378",
+        "terracotta/dessert": "-11000 +12192",
+        "Dobbel_spawner": "X: -2550 Y: -42 Z: 4205",
+        "End_Portal_Overworld": "-1189 +2438",
+        "Base": "-3000 1100",
+        "Wither_farm_fortress": "x: -1621 Z: -677",
+        "mangroveswamp": "x:-4867, y: -1940",
+        "NetherPortal": "-374, 49, 153",
+        "Cool": "mountain -4461, 190, 1365"
+    }
+}
