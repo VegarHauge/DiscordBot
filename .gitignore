@@ -4,3 +4,4 @@ discord.log
 run.sh
 .idea/
 __pycache__/
+venv/

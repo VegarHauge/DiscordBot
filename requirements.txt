@@ -2,3 +2,6 @@ discord
 dotenv
 yt-dlp
 wavelink
+pomice
+requests
+bs4
